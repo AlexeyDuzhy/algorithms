@@ -2,7 +2,7 @@ package com.algo.week1.inclass;
 
 import java.util.Arrays;
 
-public class QuickFindUF {
+public class QuickFindUF implements UF {
 
     private int[] array;
 
@@ -13,6 +13,11 @@ public class QuickFindUF {
         }
     }
 
+    /**
+     * {@inheritDoc}
+     * <p>Complexity: O(1)
+     */
+    @Override
     public boolean connected(int p, int q) {
         if (p < 0 || p >= array.length || q < 0 || q >= array.length) {
             throw new IllegalArgumentException("p or q is out of bounds");
@@ -20,6 +25,11 @@ public class QuickFindUF {
         return array[p] == array[q];
     }
 
+    /**
+     * {@inheritDoc}
+     * <p>Complexity: O(n)
+     */
+    @Override
     public void union(int p, int q) {
         if (!connected(p, q)) {
             int tmp = array[p];
